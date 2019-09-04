@@ -14,10 +14,21 @@ module.exports = {
     output:{
         path:path.resolve(__dirname,'dist'),
         filename:'js/[name].js',
-        publicPath:'http://cdn.com'//公共路径  eg: http://cdn.com/src/script/a.js
+        //publicPath:'http://cdn.com'//公共路径  eg: http://cdn.com/src/script/a.js
     },
     plugins: [
-        new HtmlCleanWebpackPlugin(),//清理
+            new HtmlWebpackPlugin({
+                title: 'this is main.html',
+                template:'main.html',//html参照模板
+                filename:'main.html',//最终打包后的html文件名
+                inject:false,//插入到head部 否则 false
+                minify:{//压缩
+                    removeComments:true,//移除注释
+                },
+                chunks:['main'],//指定需要在当前html中加载的js
+                //excludeChunks:['b','c'],//指定不包含js队列（与chunks相反）
+
+            }),
              new HtmlWebpackPlugin({
                title: 'this is a.html',
                template:'index.html',//html参照模板
