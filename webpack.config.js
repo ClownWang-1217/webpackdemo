@@ -21,7 +21,7 @@ module.exports = {
                 title: 'this is main.html',
                 template:'main.html',//html参照模板
                 filename:'main.html',//最终打包后的html文件名
-                inject:false,//插入到head部 否则 false
+                inject:"body",//插入到head部 否则 false
                 minify:{//压缩
                     removeComments:true,//移除注释
                 },
