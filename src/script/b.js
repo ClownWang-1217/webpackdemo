@@ -1,4 +1,4 @@
-module.exports = function ()
+function b()
 {
     alert("this is b");
 }
