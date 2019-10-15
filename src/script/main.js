@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ReactDom from 'react-dom';
-import A from './a';
+import {a,b} from './a'
+import '../style/main.css';
 class App extends Component
 {
     render() {
@@ -12,8 +13,10 @@ class App extends Component
             <p className="App-intro">
               你可以在 <code>src/App.js</code> 文件中修改。
             </p>
+
+            <button onClick = {a}>dianwo</button>
             <video autoPlay loop  controls="controls">
-          <source src="https://www.runoob.com/try/demo_source/movie.mp4" type="video/mp4"></source>
+          {/* <source src="1.mp4" type="video/mp4"></source> */}
           </video>
           </div>
           
@@ -24,5 +27,3 @@ class App extends Component
 }
 
 ReactDom.render(<App />,document.getElementById('root'));
-
-console.log(A.bar)

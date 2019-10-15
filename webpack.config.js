@@ -29,8 +29,21 @@ module.exports = {
                     use: [{ loader: 'babel-loader' }],
                     // 排除 node_modules 目录下的文件
                     exclude: path.resolve(__dirname, 'node_modules'),
-                }
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                      { loader: 'style-loader' },
+                      {
+                        loader: 'css-loader',
+                        options: {
+                          modules: true
+                        }
+                      }
+                    ]
+                  }
             ]
+            
     },
     plugins: [
         new HtmlWebpackPlugin({

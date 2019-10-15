@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
     <title></title>
   <script type="text/javascript" src="script/main.js"></script><script type="text/javascript" src="script/a.js"></script></head>
   <body>
     <h1></h1>
     <p>Welcome to </p>
-    <a href="http://www.baidu.com" id="href" target="_blank" onclick="clickHandle()">baidu.com</a>
+    
     <script>
       function clickHandle()
       {
+        
         setTimeout(function(){
           var a = document.getElementById('href');
           a.style.color = 'red';
@@ -17,6 +19,6 @@
       }
     </script>
     <div id="root"></div>
-
+    <a href="http://www.baidu.com" id="href" target="_blank" onclick="a()">baidu.com</a>
   </body>
 </html>
