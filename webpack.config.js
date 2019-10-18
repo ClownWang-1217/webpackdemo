@@ -11,7 +11,7 @@ module.exports = {
         a: './src/script/a.js',
         b: './src/script/b.js',
         c: './src/script/c.js',
-        component:'./src/script/component.js'
+        component: './src/script/component.js'
 
     },
     output: {
@@ -34,17 +34,35 @@ module.exports = {
                 {
                     test: /\.css$/,
                     use: [
-                      { loader: 'style-loader' },
-                      {
-                        loader: 'css-loader',
-                        options: {
-                          modules: true
+                        { loader: 'style-loader' },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true
+                            }
                         }
-                      }
+
                     ]
-                  }
+                },
+                {
+                    include: path.resolve(__dirname, 'src'),
+                    test: /\.(png|svg|jpg|gif)$/,
+                    loader: 'file-loader',
+                    options: {
+                        name: 'images/[name].[ext]'
+                    },
+                    exclude: path.resolve(__dirname, 'node_modules'),
+                },
+                {
+                    include: path.resolve(__dirname, 'src'),
+                    test: /\.(woff|woff2|eot|ttf|otf)$/,
+                    use: [
+                        'file-loader'
+                    ],
+                    exclude: path.resolve(__dirname, 'node_modules'),
+                }
             ]
-            
+
     },
     plugins: [
         new HtmlWebpackPlugin({
