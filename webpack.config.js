@@ -11,6 +11,7 @@ module.exports = {
         a: './src/script/a.js',
         b: './src/script/b.js',
         c: './src/script/c.js',
+        component:'./src/script/component.js'
 
     },
     output: {
@@ -91,6 +92,17 @@ module.exports = {
             },
             chunks: ['c', 'main'],//指定需要在当前html中加载的js
             excludeChunks: ['a', 'b'],//指定不包含js队列（与chunks相反）
+        }),
+        new HtmlWebpackPlugin({
+            title: 'this is c.html',
+            template: 'index.html',//html参照模板
+            filename: 'index.html',//最终打包后的html文件名
+            inject: 'body',//插入到head部 否则 false
+            minify: {//压缩
+                removeComments: true,//移除注释
+            },
+            chunks: ['component'],//指定需要在当前html中加载的js
+            //excludeChunks: ['a', 'b'],//指定不包含js队列（与chunks相反）
         })
     ],
 }
