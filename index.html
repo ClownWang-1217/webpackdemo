@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top top-title">
 
         <div class="container-fluid">
             <div class="navbar-hearder">
@@ -188,6 +188,47 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+    <style>
+        .top-title {
+            top: 0;
+            transition: top .5s;
+        }
+
+        .hiddened {
+            top: -90px;
+        }
+
+        .showed {
+            top: 0;
+            z-index: 9999;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            var winHeight = $(document).scrollTop();
+
+            $(window).scroll(function () {
+                var scrollY = $(document).scrollTop();// 获取垂直滚动的距离，即滚动了多少
+
+                if (scrollY > 10) { //如果滚动距离大于550px则隐藏，否则删除隐藏类
+                    $('.top-title').addClass('hiddened');
+                }
+                else {
+                    $('.top-title').removeClass('hiddened');
+                }
+
+                if (scrollY > winHeight) { //如果没滚动到顶部，删除显示类，否则添加显示类
+                    $('.top-title').removeClass('showed');
+                }
+                else {
+                    $('.top-title').addClass('showed');
+                }
+
+            });
+        });
+    </script>
 </body>
 
 </html>
